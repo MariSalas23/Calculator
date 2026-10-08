@@ -105,7 +105,8 @@ docker compose up --build
 The application will be available at:
 
 ```text
-http://localhost:3000
+Frontend: http://localhost:3000
+Backend: http://localhost:8080
 ```
 
 To stop the containers:
@@ -503,4 +504,160 @@ The frontend is served using Nginx and the backend runs as a separate Go contain
 
 ## 10. Prompts
 
-...
+Act as a full-stack software engineer specialized in React, TypeScript and Go. Your goal is to help me develop a full-stack calculator application for a Sezzle technical assessment. You must maintain a professional, clear, direct, and solution-oriented tone.
+
+Here is the project requirements document that you must consult when responding:
+
+<document>
+Objective:
+Build a full-stack calculator application with a React frontend and a backend microservice. The frontend should consume the backend API to perform basic and advanced arithmetic operations. Focus on clean design, maintainable code, and testable architecture.
+
+Functional Operations:
+- Addition
+- Subtraction
+- Multiplication
+- Division
+- Optional: Exponentiation, Square Root, Percentage
+
+Frontend:
+- React
+- Intuitive UI for entering input and displaying results
+- Input validation and error handling
+- Responsive design with basic mobile support
+
+Backend:
+- REST API
+- Validate input
+- Handle edge cases such as division by zero and invalid data
+- Return results in JSON format
+
+Non-Functional:
+- Clean, readable, idiomatic code
+- Unit tests covering key functionality for both layers
+- Documentation with setup instructions, API usage, and design rationale
+
+Constraints:
+- Frontend: React, TypeScript preferred
+- Backend: Go preferred
+
+Deliverables:
+1. Git repository with frontend and backend code
+2. README with setup instructions, API examples, and design decisions
+3. Unit tests and coverage report
+4. Optional Dockerfile for full-stack deployment
+
+Additional instructions:
+- AI tooling is allowed
+- Prioritize correctness, clarity, and maintainability over extra features
+- Document relevant AI prompts used during development
+</document>
+
+The calculator UI is an original design created specifically for this project in Figma. The application must follow a mobile-first approach. The implementation must follow the attached design images as the main visual reference, which show the original calculator design created in Figma. Use the attached images as the source for the overall layout, calculator proportions, button placement and shapes, spacing, colors and responsive behaviour.
+
+![Mobile design](/images.figma1.png)
+![Desktop design](/images.figma1.png)
+
+Also, use the following project color variables exactly (these should be CSS variables and reused throughout the application):
+
+--color-primary: #4256EB;
+--color-black: #000000;
+--color-purple: #A134EA;
+--color-purple-light: #F6ECFF;
+--color-blue-light: #E9ECFF;
+--color-gray-light: #F4F4F4;
+--color-white: #FFFFFF;
+--color-gray-purple: #C9D0FF;
+
+The frontend must be implemented using React, TypeScript, Vite and CSS. Use standard CSS with CSS variables and media queries. Also, use rem units for sizing, spacing, typography, padding, margins, gaps, and other scalable measurements whenever appropriate. It will follow a mobile-first approach and use CSS media queries to make the design responsive for desktop and tablet devices in portrait orientation.
+
+Regarding the structure, use folders such as api, components, utils, and test. The components will be Calculator, Display, Numbers (number buttons), and Operations (operation buttons). The color variables will be defined in the styles folder. 
+
+Follow these responsibilities:
+
+* App.tsx: Render the Calculator component.
+* Calculator.tsx: Manage calculator state and handle user interactions.
+* Display.tsx: Display the current value.
+* Numbers.tsx: Render numeric buttons.
+* Operations.tsx: Render operation buttons, the clear functionality, the equals functionality and manage the advanced operation selection UI.
+* api.ts: Handle communication with the backend REST API.
+* validation.ts: Validate numeric input and format calculator results.
+
+The advanced operations should use the following interaction:
+
+- A visible √/^ button is always present
+- Clicking it opens a small floating menu
+- The menu contains √ and ^ options
+- The options are displayed side by side
+- Selecting √ activates square root
+- Selecting ^ activates exponentiation
+- The selected advanced operation should be visually indicated
+- The menu closes after selecting an operation
+
+The frontend must include unit tests for key functionality and it will communicate with the Go backend through:
+
+POST /api/calculate
+
+The request format is:
+
+{
+  "operation": "add",
+  "a": 1,
+  "b": 2
+}
+
+The API supports:
+
+- add
+- subtract
+- multiply
+- divide
+- power
+- sqrt
+- percentage
+
+The frontend must handle successful responses in the format:
+
+{
+  "result": 8
+}
+
+and error responses in the format:
+
+{
+  "error": "error message"
+}
+
+The backend must be implemented using Go and must expose a REST API for all calculator operations. Use a structure with separate folders like configuration, controllers, models, routes, services, tests, and utilities. The backend must expose the calculator through the POST /api/calculate endpoint. The controller must validate the incoming request, determine the requested operation, call the corresponding service function, and return the result as JSON. The service layer must implement addition, subtraction, multiplication, division, exponentiation, square root, and percentage operations. The backend must handle errors such as division by zero, square root of negative numbers, invalid operations, and invalid request data, returning appropriate HTTP status codes and JSON error messages.
+
+The backend API must follow the request and response formats defined above and maintain a consistent contract with the React frontend. The frontend must communicate with the backend only through the API layer, while the backend must keep the calculation logic independent from the HTTP layer. Also, the backend must include unit tests covering the main calculator operations and relevant edge cases.
+
+The application will be deployed using Docker. The frontend and backend must each have their own Dockerfile, and Docker Compose must be used to orchestrate both services.
+
+The project must also include a professional and complete README.md. Use the following structure:
+
+1. Features
+2. Tech Stack
+2.1. Frontend
+2.2. Backend
+2.3. Infrastructure
+2.4. Project Structure
+3. Prerequisites
+4. Running Locally
+4.1. Running with Docker
+4.2. Backend
+4.3. Frontend
+5. API
+5.1. POST /api/calculate
+5.2. Addition
+5.3. Subtraction
+5.4. Multiplication
+5.5. Division
+5.6. Power
+5.7. Square Root
+5.8. Percentage
+5.9. API Summary
+6. Error Handling
+7. Testing
+8. Design Decisions
+9. Assumptions
+10. Prompts
