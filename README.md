@@ -646,43 +646,43 @@ The project must also include a professional and complete README.md. Use the fol
    
 2. Tech Stack
 
-2.1. Frontend
-
-2.2. Backend
-
-2.3. Infrastructure
-
-2.4. Project Structure
+  2.1. Frontend
+  
+  2.2. Backend
+  
+  2.3. Infrastructure
+  
+  2.4. Project Structure
 
 3. Prerequisites
    
 4. Running Locally
    
-4.1. Running with Docker
-
-4.2. Backend
-
-4.3. Frontend
+  4.1. Running with Docker
+  
+  4.2. Backend
+  
+  4.3. Frontend
 
 5. API
    
-5.1. POST /api/calculate
-
-5.2. Addition
-
-5.3. Subtraction
-
-5.4. Multiplication
-
-5.5. Division
-
-5.6. Power
-
-5.7. Square Root
-
-5.8. Percentage
-
-5.9. API Summary
+  5.1. POST /api/calculate
+  
+  5.2. Addition
+  
+  5.3. Subtraction
+  
+  5.4. Multiplication
+  
+  5.5. Division
+  
+  5.6. Power
+  
+  5.7. Square Root
+  
+  5.8. Percentage
+  
+  5.9. API Summary
 
 6. Error Handling
    
