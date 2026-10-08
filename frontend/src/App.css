@@ -1,0 +1,23 @@
+#root {
+  min-height: 100vh;
+}
+
+.app {
+  width: 100%;
+  min-height: 100vh;
+  background: var(--color-primary);
+}
+
+.app-content {
+  width: 100%;
+  min-height: 100vh;
+  display: flex;
+  align-items: flex-end;
+  justify-content: center;
+}
+
+@media (min-width: 37.5rem) {
+  .app-content {
+    align-items: center;
+  }
+}

@@ -1,0 +1,37 @@
+.calculator-button {
+  width: 100%;
+  aspect-ratio: 1;
+  border: none;
+  border-radius: 50%;
+  display: grid;
+  place-items: center;
+  padding: 0;
+  cursor: pointer;
+  font-family: inherit;
+  -webkit-tap-highlight-color: transparent;
+  transition: transform 0.08s ease;
+}
+
+.number-button {
+  background: var(--color-gray-light);
+  color: var(--color-black);
+}
+
+.backspace-button {
+  background: var(--color-gray-light);
+  color: var(--color-black);
+}
+
+.calculator-button:active {
+  transform: scale(0.94);
+}
+
+@media (min-width: 37.5rem) {
+  .number-button {
+    font-size: 0.95rem;
+  }
+
+  .backspace-button {
+    font-size: 0.85rem;
+  }
+}

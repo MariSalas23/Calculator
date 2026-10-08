@@ -1,0 +1,45 @@
+.operation-button {
+  width: 100%;
+  aspect-ratio: 1;
+  border: none;
+  border-radius: 50%;
+  display: grid;
+  place-items: center;
+  padding: 0;
+  cursor: pointer;
+  font-family: inherit;
+  font-size: 1.3rem;
+  font-weight: 400;
+  -webkit-tap-highlight-color: transparent;
+  transition: transform 0.08s ease;
+}
+
+.clear-button,
+.advanced-button,
+.percent-button {
+  background: var(--color-purple-light);
+  color: var(--color-purple);
+}
+
+.divide-button,
+.multiply-button,
+.subtract-button,
+.add-button {
+  background: var(--color-blue-light);
+  color: var(--color-primary);
+}
+
+.equals-button {
+  background: var(--color-primary);
+  color: var(--color-white);
+}
+
+.operation-button:active {
+  transform: scale(0.94);
+}
+
+@media (min-width: 37.5rem) {
+  .operation-button {
+    font-size: 0.95rem;
+  }
+}
