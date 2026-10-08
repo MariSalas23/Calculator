@@ -14,6 +14,64 @@
   transition: transform 0.08s ease;
 }
 
+.advanced-button-wrapper {
+  position: relative;
+  width: 100%;
+  height: 100%;
+}
+
+.advanced-button-wrapper .advanced-button {
+  width: 100%;
+  height: 100%;
+}
+
+.advanced-popover {
+  position: absolute;
+  z-index: 20;
+  bottom: calc(100% + 0.45rem);
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  flex-direction: row;
+  gap: 0.45rem;
+  padding: 0.35rem;
+  background-color: #ffffff;
+  border-radius: 0.9rem;
+  box-shadow: 0 0.25rem 0.7rem rgba(0, 0, 0, 0.18);
+}
+
+.advanced-option {
+  width: 2.5rem;
+  height: 2.5rem;
+  border: none;
+  border-radius: 50%;
+  background-color: #f6ecff;
+  color: #a134ea;
+  font-family: inherit;
+  font-size: 1.1rem;
+  font-weight: 400;
+  display: grid;
+  place-items: center;
+  cursor: pointer;
+  padding: 0;
+  flex-shrink: 0;
+  -webkit-tap-highlight-color: transparent;
+}
+
+.advanced-option:hover {
+  background-color: #a134ea;
+  color: #ffffff;
+}
+
+.advanced-option.selected {
+  background-color: #a134ea;
+  color: #ffffff;
+}
+
+.advanced-option:active {
+  transform: scale(0.94);
+}
+
 .clear-button,
 .advanced-button,
 .percent-button {

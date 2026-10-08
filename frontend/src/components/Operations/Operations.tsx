@@ -2,9 +2,11 @@ import "./Operations.css";
 
 interface OperationsProps {
   advancedMode: "sqrt" | "power";
+  advancedOpen: boolean;
   onAdvancedModeChange: (
     mode: "sqrt" | "power"
   ) => void;
+  onAdvancedToggle: () => void;
   onOperation: (
     operation:
       | "add"
@@ -20,13 +22,15 @@ interface OperationsProps {
 
 function Operations({
   advancedMode,
+  advancedOpen,
   onAdvancedModeChange,
+  onAdvancedToggle,
   onOperation
 }: OperationsProps) {
-  const toggleAdvancedMode = () => {
-    onAdvancedModeChange(
-      advancedMode === "sqrt" ? "power" : "sqrt"
-    );
+  const selectAdvancedMode = (
+    mode: "sqrt" | "power"
+  ) => {
+    onAdvancedModeChange(mode);
   };
 
   return (
@@ -39,13 +43,47 @@ function Operations({
         C
       </button>
 
-      <button
-        type="button"
-        className="calculator-button operation-button advanced-button"
-        onClick={toggleAdvancedMode}
-      >
-        {advancedMode === "sqrt" ? "√" : "^"}
-      </button>
+      <div className="advanced-button-wrapper">
+        {advancedOpen && (
+          <div
+            className="advanced-popover"
+            role="menu"
+            aria-label="Advanced operations"
+          >
+            <button
+              type="button"
+              className={`advanced-option ${
+                advancedMode === "sqrt" ? "selected" : ""
+              }`}
+              onClick={() => selectAdvancedMode("sqrt")}
+              aria-label="Square root"
+            >
+              √
+            </button>
+
+            <button
+              type="button"
+              className={`advanced-option ${
+                advancedMode === "power" ? "selected" : ""
+              }`}
+              onClick={() => selectAdvancedMode("power")}
+              aria-label="Power"
+            >
+              ^
+            </button>
+          </div>
+        )}
+
+        <button
+          type="button"
+          className="calculator-button operation-button advanced-button"
+          onClick={onAdvancedToggle}
+          aria-label="Advanced operations"
+          aria-expanded={advancedOpen}
+        >
+          √/^
+        </button>
+      </div>
 
       <button
         type="button"

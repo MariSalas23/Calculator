@@ -34,6 +34,7 @@ function Calculator({
   const [storedValue, setStoredValue] = useState<number | null>(null);
   const [operation, setOperation] = useState<Operation | null>(null);
   const [error, setError] = useState("");
+  const [advancedOpen, setAdvancedOpen] = useState(false);
 
   const clear = () => {
     setDisplay("0");
@@ -41,6 +42,7 @@ function Calculator({
     setStoredValue(null);
     setOperation(null);
     setError("");
+    setAdvancedOpen(false);
   };
 
   const inputNumber = (value: string) => {
@@ -73,30 +75,36 @@ function Calculator({
 
     const currentValue = Number(display);
 
-    if (
-      nextOperation === "sqrt" ||
-      nextOperation === "percentage"
-    ) {
+    if (nextOperation === "sqrt") {
       setStoredValue(currentValue);
-      setOperation(nextOperation);
-      setExpression(
-        `${nextOperation === "sqrt" ? "√" : "%"}${formatResult(currentValue)}`
-      );
+      setOperation("sqrt");
+      setExpression(`√${formatResult(currentValue)}`);
+      return;
+    }
+
+    if (nextOperation === "percentage") {
+      setStoredValue(currentValue);
+      setOperation("percentage");
+      setExpression(`%${formatResult(currentValue)}`);
       return;
     }
 
     setStoredValue(currentValue);
     setOperation(nextOperation);
+
+    const symbol =
+      nextOperation === "add"
+        ? "+"
+        : nextOperation === "subtract"
+          ? "−"
+          : nextOperation === "multiply"
+            ? "×"
+            : nextOperation === "divide"
+              ? "÷"
+              : "^";
+
     setExpression(
-      `${formatResult(currentValue)} ${
-        nextOperation === "add"
-          ? "+"
-          : nextOperation === "subtract"
-            ? "−"
-            : nextOperation === "multiply"
-              ? "×"
-              : "÷"
-      }`
+      `${formatResult(currentValue)} ${symbol}`
     );
     setDisplay("0");
   };
@@ -123,6 +131,7 @@ function Calculator({
       });
 
       setDisplay(formatResult(result));
+      setExpression("");
       setStoredValue(null);
       setOperation(null);
       setError("");
@@ -164,25 +173,61 @@ function Calculator({
     selectOperation(value);
   };
 
+  const handleAdvancedToggle = () => {
+    setAdvancedOpen((current) => !current);
+  };
+
+  const handleAdvancedModeChange = (
+    mode: "sqrt" | "power"
+  ) => {
+    onAdvancedModeChange(mode);
+    setAdvancedOpen(false);
+
+    if (!isValidNumber(display)) {
+      return;
+    }
+
+    const currentValue = Number(display);
+
+    if (mode === "sqrt") {
+      setStoredValue(currentValue);
+      setOperation("sqrt");
+      setExpression(`√${formatResult(currentValue)}`);
+      return;
+    }
+
+    setStoredValue(currentValue);
+    setOperation("power");
+    setExpression(
+      `${formatResult(currentValue)} ^`
+    );
+    setDisplay("0");
+  };
+
   return (
-  <section className="calculator" aria-label="Calculator">
-    <Display
-      expression={expression}
-      value={display}
-      error={error}
-    />
-
-    <div className="keypad">
-      <Numbers onInput={inputNumber} />
-
-      <Operations
-        advancedMode={advancedMode}
-        onAdvancedModeChange={onAdvancedModeChange}
-        onOperation={handleOperation}
+    <section
+      className="calculator"
+      aria-label="Calculator"
+    >
+      <Display
+        expression={expression}
+        value={display}
+        error={error}
       />
-    </div>
-  </section>
-);
+
+      <div className="keypad">
+        <Numbers onInput={inputNumber} />
+
+        <Operations
+          advancedMode={advancedMode}
+          advancedOpen={advancedOpen}
+          onAdvancedModeChange={handleAdvancedModeChange}
+          onAdvancedToggle={handleAdvancedToggle}
+          onOperation={handleOperation}
+        />
+      </div>
+    </section>
+  );
 }
 
 export default Calculator;
