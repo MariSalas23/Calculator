@@ -554,18 +554,25 @@ Additional instructions:
 
 The calculator UI is an original design created specifically for this project in Figma. The application must follow a mobile-first approach. The implementation must follow the attached design images as the main visual reference, which show the original calculator design created in Figma. Use the attached images as the source for the overall layout, calculator proportions, button placement and shapes, spacing, colors and responsive behaviour.
 
-![Mobile design](/images.figma1.png)
-![Desktop design](/images.figma1.png)
+![Mobile design](/images/figma1.png)
+![Desktop design](/images/figma2.png)
 
 Also, use the following project color variables exactly (these should be CSS variables and reused throughout the application):
 
 --color-primary: #4256EB;
+
 --color-black: #000000;
+
 --color-purple: #A134EA;
+
 --color-purple-light: #F6ECFF;
+
 --color-blue-light: #E9ECFF;
+
 --color-gray-light: #F4F4F4;
+
 --color-white: #FFFFFF;
+
 --color-gray-purple: #C9D0FF;
 
 The frontend must be implemented using React, TypeScript, Vite and CSS. Use standard CSS with CSS variables and media queries. Also, use rem units for sizing, spacing, typography, padding, margins, gaps, and other scalable measurements whenever appropriate. It will follow a mobile-first approach and use CSS media queries to make the design responsive for desktop and tablet devices in portrait orientation.
@@ -636,28 +643,53 @@ The application will be deployed using Docker. The frontend and backend must eac
 The project must also include a professional and complete README.md. Use the following structure:
 
 1. Features
+   
 2. Tech Stack
+
 2.1. Frontend
+
 2.2. Backend
+
 2.3. Infrastructure
+
 2.4. Project Structure
+
 3. Prerequisites
+   
 4. Running Locally
+   
 4.1. Running with Docker
+
 4.2. Backend
+
 4.3. Frontend
+
 5. API
+   
 5.1. POST /api/calculate
+
 5.2. Addition
+
 5.3. Subtraction
+
 5.4. Multiplication
+
 5.5. Division
+
 5.6. Power
+
 5.7. Square Root
+
 5.8. Percentage
+
 5.9. API Summary
+
 6. Error Handling
+   
 7. Testing
+   
 8. Design Decisions
+   
 9. Assumptions
+    
 10. Prompts
