@@ -147,6 +147,34 @@
   grid-row: 5;
 }
 
+.keypad > .calculator-button:hover,
+.advanced-button-wrapper > .calculator-button:hover {
+  transform: scale(1.06);
+}
+
+.number-button:hover,
+.equals-button:hover {
+  filter: brightness(0.94);
+}
+
+.advanced-option:hover {
+  transform: scale(1.06);
+  background-color: var(--color-purple);
+  color: var(--color-white);
+}
+
+.operation-button:hover {
+  background-color: var(--color-primary);
+  color: var(--color-white);
+}
+
+.clear-button:hover,
+.advanced-button:hover,
+.percent-button:hover {
+  background-color: var(--color-purple);
+  color: var(--color-white);
+}
+
 @media (min-width: 37.5rem) {
   .calculator {
     width: 13.5rem;
@@ -155,10 +183,6 @@
     border-radius: 1.125rem;
     overflow: hidden;
     box-shadow: 0.3rem 0.4rem 0.5rem rgba(0, 0, 0, 0.24);
-  }
-
-  .expression {
-    
   }
 
   .keypad {

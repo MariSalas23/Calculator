@@ -35,7 +35,7 @@
   flex-direction: row;
   gap: 0.45rem;
   padding: 0.35rem;
-  background-color: #ffffff;
+  background-color: var(--color-white);;
   border-radius: 0.9rem;
   box-shadow: 0 0.25rem 0.7rem rgba(0, 0, 0, 0.18);
 }
@@ -45,8 +45,8 @@
   height: 2.5rem;
   border: none;
   border-radius: 50%;
-  background-color: #f6ecff;
-  color: #a134ea;
+  background-color: var(--color-purple-light);
+  color: var(--color-purple);
   font-family: inherit;
   font-size: 1.1rem;
   font-weight: 400;
@@ -59,13 +59,14 @@
 }
 
 .advanced-option:hover {
-  background-color: #a134ea;
-  color: #ffffff;
+  background-color: var(--color-purple);
+  color: var(--color-white);
 }
 
-.advanced-option.selected {
-  background-color: #a134ea;
-  color: #ffffff;
+.advanced-option.selected:hover {
+  transform: scale(1.08);
+  background-color: var(--color-purple);
+  color: var(--color-white);
 }
 
 .advanced-option:active {
