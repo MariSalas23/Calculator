@@ -7,6 +7,7 @@ import (
 	"calculator-backend/services"
 )
 
+// Test addition
 func TestAdd(t *testing.T) {
 	result := services.Add(5, 3)
 
@@ -15,6 +16,7 @@ func TestAdd(t *testing.T) {
 	}
 }
 
+// Test subtraction
 func TestSubtract(t *testing.T) {
 	result := services.Subtract(5, 3)
 
@@ -23,6 +25,7 @@ func TestSubtract(t *testing.T) {
 	}
 }
 
+// Test multiplication
 func TestMultiply(t *testing.T) {
 	result := services.Multiply(5, 3)
 
@@ -31,6 +34,7 @@ func TestMultiply(t *testing.T) {
 	}
 }
 
+// Test division
 func TestDivide(t *testing.T) {
 	result, err := services.Divide(10, 2)
 
@@ -43,6 +47,7 @@ func TestDivide(t *testing.T) {
 	}
 }
 
+// Test division by zero
 func TestDivideByZero(t *testing.T) {
 	_, err := services.Divide(10, 0)
 
@@ -54,6 +59,7 @@ func TestDivideByZero(t *testing.T) {
 	}
 }
 
+// Test power calculation
 func TestPower(t *testing.T) {
 	result := services.Power(2, 3)
 
@@ -62,6 +68,7 @@ func TestPower(t *testing.T) {
 	}
 }
 
+// Test square root
 func TestSquareRoot(t *testing.T) {
 	result, err := services.SquareRoot(9)
 
@@ -74,6 +81,7 @@ func TestSquareRoot(t *testing.T) {
 	}
 }
 
+// Test negative square root
 func TestSquareRootNegative(t *testing.T) {
 	_, err := services.SquareRoot(-9)
 
@@ -88,6 +96,7 @@ func TestSquareRootNegative(t *testing.T) {
 	}
 }
 
+// Test percentage calculation
 func TestPercentage(t *testing.T) {
 	result := services.Percentage(25)
 

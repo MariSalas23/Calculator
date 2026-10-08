@@ -1,3 +1,4 @@
+// Import React state management
 import { useState } from "react";
 import { calculate } from "../../api/api";
 import {
@@ -9,6 +10,7 @@ import Numbers from "../Numbers/Numbers";
 import Operations from "../Operations/Operations";
 import "./Calculator.css";
 
+// Define the available operations
 type Operation =
   | "add"
   | "subtract"
@@ -25,10 +27,12 @@ interface CalculatorProps {
   ) => void;
 }
 
+// Define the calculator component
 function Calculator({
   advancedMode,
   onAdvancedModeChange
 }: CalculatorProps) {
+  // Store the current calculator state
   const [display, setDisplay] = useState("0");
   const [expression, setExpression] = useState("");
   const [storedValue, setStoredValue] = useState<number | null>(null);
@@ -36,6 +40,7 @@ function Calculator({
   const [error, setError] = useState("");
   const [advancedOpen, setAdvancedOpen] = useState(false);
 
+  // Reset the calculator
   const clear = () => {
     setDisplay("0");
     setExpression("");
@@ -45,6 +50,7 @@ function Calculator({
     setAdvancedOpen(false);
   };
 
+  // Handle number input
   const inputNumber = (value: string) => {
     setError("");
 
@@ -67,6 +73,7 @@ function Calculator({
     );
   };
 
+  // Select a calculator operation
   const selectOperation = (nextOperation: Operation) => {
     if (!isValidNumber(display)) {
       setError("Invalid input");
@@ -109,6 +116,7 @@ function Calculator({
     setDisplay("0");
   };
 
+  // Perform the selected calculation
   const performCalculation = async () => {
     if (
       storedValue === null ||
@@ -144,6 +152,7 @@ function Calculator({
     }
   };
 
+  // Handle calculator button actions
   const handleOperation = (
     value:
       | "add"
@@ -173,10 +182,12 @@ function Calculator({
     selectOperation(value);
   };
 
+  // Toggle the advanced operations menu
   const handleAdvancedToggle = () => {
     setAdvancedOpen((current) => !current);
   };
 
+  // Change the advanced operation mode
   const handleAdvancedModeChange = (
     mode: "sqrt" | "power"
   ) => {

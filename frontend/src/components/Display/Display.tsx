@@ -1,11 +1,13 @@
 import "./Display.css";
 
+// Define the display component props
 interface DisplayProps {
   expression: string;
   value: string;
   error?: string;
 }
 
+// Render the calculator display
 export default function Display({
   expression,
   value,

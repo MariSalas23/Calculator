@@ -1,7 +1,9 @@
+// Define the backend API URL
 const API_URL =
   import.meta.env.VITE_API_URL ??
   "http://localhost:8080/api";
 
+// Define the supported operations
 export type Operation =
   | "add"
   | "subtract"
@@ -11,20 +13,24 @@ export type Operation =
   | "sqrt"
   | "percentage";
 
-export interface CalculationRequest {
+// Define the calculation request
+  export interface CalculationRequest {
   operation: Operation;
   a: number;
   b?: number;
 }
 
+// Define the calculation response
 interface CalculationResponse {
   result: number;
 }
 
+// Define the error response
 interface ErrorResponse {
   error?: string;
 }
 
+// Define the calculate function
 export async function calculate(
   request: CalculationRequest
 ): Promise<number> {

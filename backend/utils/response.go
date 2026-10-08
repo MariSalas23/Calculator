@@ -7,6 +7,7 @@ import (
 	"calculator-backend/models"
 )
 
+// Send a JSON response
 func JSONResponse(
 	w http.ResponseWriter,
 	statusCode int,
@@ -17,6 +18,7 @@ func JSONResponse(
 	json.NewEncoder(w).Encode(data)
 }
 
+// Send a successful response
 func SuccessResponse(
 	w http.ResponseWriter,
 	result float64,
@@ -30,6 +32,7 @@ func SuccessResponse(
 	)
 }
 
+// Send an error response
 func ErrorResponse(
 	w http.ResponseWriter,
 	statusCode int,

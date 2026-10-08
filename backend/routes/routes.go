@@ -1,3 +1,4 @@
+// Define the routes package
 package routes
 
 import (
@@ -6,6 +7,7 @@ import (
 	"calculator-backend/controllers"
 )
 
+// Configure the application routes
 func SetupRoutes() http.Handler {
 	mux := http.NewServeMux()
 
@@ -17,6 +19,7 @@ func SetupRoutes() http.Handler {
 	return enableCORS(mux)
 }
 
+// Enable CORS for the frontend
 func enableCORS(handler http.Handler) http.Handler {
 	return http.HandlerFunc(func(
 		w http.ResponseWriter,

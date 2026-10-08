@@ -1,5 +1,6 @@
 import "./Operations.css";
 
+// Define the operations component props
 interface OperationsProps {
   advancedMode: "sqrt" | "power";
   advancedOpen: boolean;
@@ -20,6 +21,7 @@ interface OperationsProps {
   ) => void;
 }
 
+// Render the calculator operation buttons
 function Operations({
   advancedMode,
   advancedOpen,
@@ -27,6 +29,7 @@ function Operations({
   onAdvancedToggle,
   onOperation
 }: OperationsProps) {
+  // Select an advanced operation mode
   const selectAdvancedMode = (
     mode: "sqrt" | "power"
   ) => {

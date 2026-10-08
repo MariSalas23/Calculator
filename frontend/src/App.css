@@ -16,6 +16,8 @@
   justify-content: center;
 }
 
+/* Desktop layout */
+
 @media (min-width: 37.5rem) {
   .app-content {
     align-items: center;

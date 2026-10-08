@@ -1,7 +1,9 @@
+// Define the input handler prop
 interface NumbersProps {
   onInput: (value: string) => void;
 }
 
+// Define the calculator number buttons
 const numbers = [
   "7",
   "8",
@@ -17,6 +19,7 @@ const numbers = [
   "backspace"
 ];
 
+// Render the number buttons
 function Numbers({ onInput }: NumbersProps) {
   return (
     <>

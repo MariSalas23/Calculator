@@ -3,12 +3,12 @@ package controllers
 import (
 	"encoding/json"
 	"net/http"
-
 	"calculator-backend/models"
 	"calculator-backend/services"
 	"calculator-backend/utils"
 )
 
+// Handle calculator API requests
 func Calculate(w http.ResponseWriter, r *http.Request) {
 	if r.Method != http.MethodPost {
 		utils.ErrorResponse(
@@ -21,6 +21,7 @@ func Calculate(w http.ResponseWriter, r *http.Request) {
 
 	var request models.CalculatorRequest
 
+	// Decode the request body
 	err := json.NewDecoder(r.Body).Decode(&request)
 	if err != nil {
 		utils.ErrorResponse(
@@ -36,6 +37,7 @@ func Calculate(w http.ResponseWriter, r *http.Request) {
 		calcErr error
 	)
 
+	// Select the requested operation
 	switch request.Operation {
 	case "add":
 		result = services.Add(request.A, request.B)
@@ -75,6 +77,7 @@ func Calculate(w http.ResponseWriter, r *http.Request) {
 		return
 	}
 
+	// Return calculation errors
 	if calcErr != nil {
 		utils.ErrorResponse(
 			w,
@@ -84,5 +87,6 @@ func Calculate(w http.ResponseWriter, r *http.Request) {
 		return
 	}
 
+	// Return the calculation result
 	utils.SuccessResponse(w, result)
 }

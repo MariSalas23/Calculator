@@ -4,6 +4,7 @@ import {
   isValidNumber
 } from "./validation";
 
+// Test number validation
 describe("isValidNumber", () => {
   it("returns true for a valid integer", () => {
     expect(isValidNumber("25")).toBe(true);
@@ -34,6 +35,7 @@ describe("isValidNumber", () => {
   });
 });
 
+// Test result formatting
 describe("formatResult", () => {
   it("formats an integer", () => {
     expect(formatResult(8)).toBe("8");

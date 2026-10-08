@@ -8,12 +8,13 @@ import (
 	"calculator-backend/routes"
 )
 
+// Start the backend server
 func main() {
 	cfg := config.Load()
 
 	server := &http.Server{
 		Addr:    ":" + cfg.Port,
-	Handler: routes.SetupRoutes(),
+		Handler: routes.SetupRoutes(),
 	}
 
 	log.Printf(

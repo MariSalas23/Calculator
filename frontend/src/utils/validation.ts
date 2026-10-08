@@ -1,3 +1,4 @@
+// Validate whether a value is a finite number
 export function isValidNumber(
   value: string
 ): boolean {
@@ -10,6 +11,7 @@ export function isValidNumber(
   return Number.isFinite(number);
 }
 
+// Format the calculation result for display
 export function formatResult(
   value: number
 ): string {

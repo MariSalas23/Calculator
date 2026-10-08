@@ -1,3 +1,5 @@
+/* Mobile first */
+
 .calculator-button {
   width: 100%;
   aspect-ratio: 1;
@@ -25,6 +27,8 @@
 .calculator-button:active {
   transform: scale(0.94);
 }
+
+/* Desktop layout */
 
 @media (min-width: 37.5rem) {
   .number-button {
